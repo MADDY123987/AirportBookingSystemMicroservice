@@ -1,0 +1,10 @@
+com/FlyNova/enums/UserRole.class
+com/FlyNova/payload/response/CityResponse.class
+com/FlyNova/embeddable/Address.class
+com/FlyNova/embeddable/Geocode.class
+com/FlyNova/payload/response/ApiResponse.class
+com/FlyNova/payload/response/AirportResponse.class
+com/FlyNova/payload/dto/UserDTO.class
+com/FlyNova/payload/request/AirportRequest.class
+com/FlyNova/payload/request/CityRequest.class
+com/FlyNova/CommonLibApplication.class
