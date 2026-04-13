@@ -19,5 +19,4 @@ public class UserDTO {
     private String phone;
     private UserRole role;
     private LocalDateTime lastLogin;
-
 }
