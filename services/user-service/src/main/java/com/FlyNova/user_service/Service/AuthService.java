@@ -4,6 +4,6 @@ import com.FlyNova.payload.dto.UserDTO;
 import com.FlyNova.payload.response.AuthResponse;
 
 public interface AuthService {
-    AuthResponse login(String email,String Password);
+    AuthResponse login(String email,String Password) throws Exception;
     AuthResponse signup(UserDTO req) throws Exception;
 }
