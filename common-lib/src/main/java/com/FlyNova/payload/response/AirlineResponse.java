@@ -17,9 +17,8 @@ public class AirlineResponse {
     private Long id;
     private String iataCode;
 
-    private String icaoCode;
-
     private String name;
+    private String icaoCode;
 
     private String alias;
     private String logoUrl;
