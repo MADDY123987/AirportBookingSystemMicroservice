@@ -43,8 +43,7 @@ public class Airline {
     private Long updatedById;
 
     @Column(nullable = false)
-    private Long OwnerId;
-
+    private Long ownerId;
     private Support support;
 
     @CreatedDate

@@ -1,12 +1,12 @@
 server:
-  port: 5005
+  port: 5008
 
 spring:
   application:
-    name: Airline_Core_Service
+    name: Flight_ops_Service
 
   datasource:
-    url: jdbc:mysql://localhost:3306/airline_CoreService_db
+    url: jdbc:mysql://localhost:3306/airline_FlightOpsService_db
     username: root
     password: Mad20041
 
@@ -14,3 +14,6 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+
+

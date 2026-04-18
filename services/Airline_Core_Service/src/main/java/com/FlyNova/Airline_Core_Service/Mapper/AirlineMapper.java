@@ -21,7 +21,7 @@ public class AirlineMapper {
                 .status(request.getStatus())
                 .alliance(request.getAlliance())
                 .headquartersCityId(request.getHeadquartersCityId())
-                .OwnerId(OwnerId)
+                .ownerId(OwnerId)
                 .build();
 
         if(request.getSupportEmail()!=null || request.getSupportPhone()!=null || request.getSupportHours()!=null)

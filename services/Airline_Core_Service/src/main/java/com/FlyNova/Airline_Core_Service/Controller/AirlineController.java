@@ -24,6 +24,8 @@ public class AirlineController {
 
     private final AirlineService airlineService;
 
+
+
     @PostMapping
     public ResponseEntity<AirlineResponse> createAirline(
             @Valid @RequestBody AirlineRequest airlineRequest,
@@ -72,7 +74,8 @@ public class AirlineController {
             @RequestHeader("X-user-Id") Long UserId
     ) throws Exception {
         airlineService.deleteAirlines(id,UserId);
-        ApiResponse apiResponse=new ApiResponse("Airline Delete Sucesfully");
+        ApiResponse apiResponse = new ApiResponse();
+        apiResponse.setMessage("Airline Delete Successfully");
         return ResponseEntity.ok(
                 apiResponse
         );
