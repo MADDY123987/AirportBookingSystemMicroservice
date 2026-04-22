@@ -1,10 +1,13 @@
 package com.FlyNova.Pricing_Service.Model;
-
-
-import com.FlyNova.embeddable.SeatBenefits;
+import com.FlyNova.embeddable.*;
 import com.FlyNova.enums.cabinClassType;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.time.Instant;
 
 @Getter
 @Setter
@@ -12,6 +15,7 @@ import lombok.*;
 @AllArgsConstructor
 @Entity
 @Builder
+@EntityListeners(AuditingEntityListener.class)
 public class Fare {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -53,5 +57,25 @@ public class Fare {
     private SeatBenefits seatBenefits=new SeatBenefits();
 
     @Embedded
-    private BoardingBenefits boardingBenefits;
+    private BoardingBenefits boardingBenefits=new BoardingBenefits();
+
+    @Embedded
+    @Builder.Default
+    private InFlightBenefits inFlightBenefits=new InFlightBenefits();
+
+    @Embedded
+    @Builder.Default
+    private FlexibilityBenefits flexibilityBenefits=new FlexibilityBenefits();
+
+    @Embedded
+    @Builder.Default
+    private PremuimServiceBenefits premuimServiceBenefits=new PremuimServiceBenefits();
+
+    @CreationTimestamp
+    private Instant createdAt;
+
+    @UpdateTimestamp
+    private Instant updatedAt;
+
+
 }
