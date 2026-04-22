@@ -45,6 +45,7 @@ public class Fare {
     @Column(nullable = false)
     private Double currentPrice;
 
+    @Column(length = 100)
     private String fareLabel;
 
     //todo:when create baggage Policy
@@ -76,6 +77,11 @@ public class Fare {
 
     @UpdateTimestamp
     private Instant updatedAt;
+
+    public Double getTotalPrice()
+    {
+        return baseFare+taxesAndFees+airlineFees+currentPrice;
+    }
 
 
 }
