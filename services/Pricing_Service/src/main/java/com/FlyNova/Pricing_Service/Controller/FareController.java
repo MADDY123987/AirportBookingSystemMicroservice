@@ -5,13 +5,11 @@ import com.FlyNova.payload.request.FareRequest;
 import com.FlyNova.payload.response.ApiResponse;
 import com.FlyNova.payload.response.FareResponse;
 import jakarta.validation.Valid;
-import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.PublicKey;
 import java.util.List;
 import java.util.Map;
 
@@ -22,7 +20,7 @@ public class FareController {
 
     private final FareService fareService;
     @PostMapping
-    public ResponseEntity<FareResponse> createfare
+    public ResponseEntity<FareResponse> Createfare
             (@Valid @RequestBody FareRequest request) throws Exception
     {
         return ResponseEntity.status(HttpStatus.CREATED)

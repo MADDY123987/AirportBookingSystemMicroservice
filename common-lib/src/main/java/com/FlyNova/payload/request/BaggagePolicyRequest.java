@@ -20,10 +20,10 @@ public class BaggagePolicyRequest {
     private String description;
 
     @PositiveOrZero
-    private Double cabinBaggageWeight;
+    private Double cabinBaggageMaxWeight;
 
     @PositiveOrZero
-    private Integer cabinBaggagePieces=1;
+    private Integer cabinBaggagePieces;
 
     @PositiveOrZero
     private Double cabinBaggageWeightPerPiece;
@@ -35,16 +35,16 @@ public class BaggagePolicyRequest {
     private Double checkInBaggageMaxWeight;
 
     @PositiveOrZero
-    private Integer checkInBaggagePieces=1;
+    private Integer checkInBaggagePieces;
 
     @PositiveOrZero
     private Double checkInBaggageWeightPerPiece;
 
     @PositiveOrZero
-    private Integer freeCheckBagesAllowance=0;
+    private Integer freeCheckedBagesAllowance;
 
+    //Benefits
     private Boolean priorityBaggage;
-
     private Boolean extraBaggageAllowance;
 
 }

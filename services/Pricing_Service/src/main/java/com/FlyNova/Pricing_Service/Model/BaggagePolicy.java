@@ -2,7 +2,6 @@ package com.FlyNova.Pricing_Service.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -32,7 +31,7 @@ public class BaggagePolicy {
 
     private String description;
 
-    private Double cabinBaggageWeight;
+    private Double cabinBaggageMaxWeight;
     private Integer cabinBaggagePieces=1;
 
     private Double cabinBaggageWeightPerPiece;

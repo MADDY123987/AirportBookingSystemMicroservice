@@ -21,7 +21,7 @@ public class FareRulesServiceImpl implements FareRulesService {
     private final FareRulesRepository fareRulesRepository;
     private final FareRepository fareRepository;
     @Override
-    public FareRulesResponse CreateFareRule(FareRulesRequest request) throws Exception {
+    public FareRulesResponse CreateFareRule(FareRulesRequest request) {
         Fare fare=fareRepository.findById(request.getFareId())
                 .orElseThrow(()->new EntityNotFoundException(
                         "Fare Not Foudn With id"+ request.getFareId()));

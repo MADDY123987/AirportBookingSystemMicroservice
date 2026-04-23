@@ -27,21 +27,21 @@ public class FareRulesController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<FareRulesResponse> getFareRulesById(Long id) throws Exception {
+    public ResponseEntity<FareRulesResponse> getFareRulesById(@PathVariable Long id) throws Exception {
         return ResponseEntity.ok(fareRulesService.getFareRulesById(id));
     }
 
     @GetMapping("/fare/{fareId}")
-    public ResponseEntity<FareRulesResponse> getFareRulesByFareId(Long fareId) throws Exception {
+    public ResponseEntity<FareRulesResponse> getFareRulesByFareId(@PathVariable Long fareId) throws Exception {
         return ResponseEntity.ok(fareRulesService.getFareRulesByFareId(fareId));
     }
     @GetMapping("/airlineId/{airlineId}")
-    public ResponseEntity<List<FareRulesResponse>> getFareRulesByAirlineId(Long airlineId)
+    public ResponseEntity<List<FareRulesResponse>> getFareRulesByAirlineId(@PathVariable Long airlineId)
     {
         return ResponseEntity.ok(fareRulesService.getFareRulesByAirlineId(airlineId));
     }
 
-    @PutMapping("/id")
+    @PutMapping("/{id}")
     public ResponseEntity<FareRulesResponse>updateFareRules(
          @PathVariable Long id,
          @Valid @RequestBody FareRulesRequest request
@@ -49,7 +49,7 @@ public class FareRulesController {
         return ResponseEntity.ok(fareRulesService.updateFareRule(id,request));
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void>deleteFareRules(
             @PathVariable Long id
     ) throws Exception {
