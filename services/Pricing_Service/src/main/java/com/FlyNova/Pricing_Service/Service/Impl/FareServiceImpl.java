@@ -22,7 +22,7 @@ public class FareServiceImpl implements FareService {
     private final FareRepository fareRepository;
     @Override
     public FareResponse createFare(FareRequest request) throws Exception {
-        if(fareRepository.existsByFlightIdAndCabinClassIdandName(
+        if(fareRepository.existsByFlightIdAndCabinClassIdAndName(
                 request.getFlightId(), request.getCabinClassId(), request.getName()
         ))
         {
@@ -43,7 +43,7 @@ public class FareServiceImpl implements FareService {
 
     @Override
     public List<FareResponse> getFareByFlightIdAndCabinClassId(Long flightId, Long cabinClassId) {
-        return fareRepository.findByFlightIdandCabinClassId(
+        return fareRepository.findByFlightIdAndCabinClassId(
                 flightId, cabinClassId
         ).stream().map(
                 FareMapper::toResponse
@@ -83,7 +83,7 @@ public class FareServiceImpl implements FareService {
     public Map<Long, FareResponse> getLowestFarePerFlight(List<Long> flightIds, Long cabinClassId) {
         if(flightIds==null||flightIds.isEmpty()) return Map.of();
 
-        List<Fare> fares=fareRepository.findByFlightIdInandCabinClassId(
+        List<Fare> fares=fareRepository.findByFlightIdInAndCabinClassId(
                 flightIds,cabinClassId
         );
         Map<Long,FareResponse> result=fares.stream()

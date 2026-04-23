@@ -11,10 +11,10 @@ public interface FareRepository extends JpaRepository<Fare,Long> {
     List<Fare> findByFlightId(Long flightId);
     Page<Fare> findByFlightId(Long flightId, Pageable pageable);
     List<Fare> findByCabinClassId(Long flightId);
-    List<Fare> findByFlightIdandCabinClassId(Long flightId,Long cabinClassId);
-    List<Fare> findByFlightIdInandCabinClassId(List<Long>flightId,Long cabinClassId);
+    List<Fare> findByFlightIdAndCabinClassId(Long flightId,Long cabinClassId);
+    List<Fare> findByFlightIdInAndCabinClassId(List<Long>flightId,Long cabinClassId);
 
-    boolean existsByFlightIdAndCabinClassIdandName(
+    boolean existsByFlightIdAndCabinClassIdAndName(
             Long flightId,Long cabinClassId,String name
     );
     boolean existsByFlightIdAndCabinClassIdAndNameAndIdNot(
