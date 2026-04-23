@@ -108,6 +108,7 @@ public class FareMapper {
                 .loungeAccess(fare.getPremuimServiceBenefits() != null ? fare.getPremuimServiceBenefits().getLoungeAccess() : false)
                 .airportTransfer(fare.getPremuimServiceBenefits() != null ? fare.getPremuimServiceBenefits().getAirportTransfer() : false)
                 // Nested responses
+                //Watch Fair Rule and Baggage Policy
                 //.fareRules(fare.getFareRules() != null ? FareRulesMapper.toResponse(fare.getFareRules()) : null)
                 //.baggagePolicy(fare.getBaggagePolicy() != null ? BaggagePolicyMapper.toResponse(fare.getBaggagePolicy()) : null)
                 .createdAt(fare.getCreatedAt())
