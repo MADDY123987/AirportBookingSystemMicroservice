@@ -22,6 +22,9 @@
         <module>Airline_Core_Service</module>
         <module>Flight_ops_Service</module>
         <module>Pricing_Service</module>
+        <module>Seat_service</module>
+        <module>Ancillary_Service</module>
+        <module>Booking_Service</module>
     </modules>
 
     <dependencyManagement>

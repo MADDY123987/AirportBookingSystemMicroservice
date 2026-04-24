@@ -1,6 +1,6 @@
 package com.FlyNova.payload.response;
 
-import com.FlyNova.enums.cabinClassType;
+import com.FlyNova.enums.CabinClassType;
 import lombok.*;
 
 import java.time.Instant;
@@ -17,7 +17,7 @@ public class FareResponse {
     private Character rbdCode;
     private Long flightId;
     private Long cabinClassId;
-    private cabinClassType cabinClass;
+    private CabinClassType cabinClass;
 
     // Pricing
     private Double baseFare;

@@ -1,6 +1,6 @@
 package com.FlyNova.Pricing_Service.Model;
 import com.FlyNova.embeddable.*;
-import com.FlyNova.enums.cabinClassType;
+import com.FlyNova.enums.CabinClassType;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -34,7 +34,7 @@ public class Fare {
     private Long cabinClassId;
 
     @Enumerated(EnumType.STRING)
-    private cabinClassType cabinClass;
+    private CabinClassType cabinClass;
 
     @Column(nullable = false)
     private Double baseFare;

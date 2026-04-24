@@ -1,6 +1,6 @@
 package com.FlyNova.enums;
 
-public enum cabinClassType {
+public enum CabinClassType {
     ECONOMY,
     BUSINESS,
     FIRST,
