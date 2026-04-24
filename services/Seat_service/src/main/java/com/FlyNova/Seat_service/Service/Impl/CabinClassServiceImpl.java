@@ -55,7 +55,7 @@ public class CabinClassServiceImpl implements CabinClassService {
         CabinClass cabinClass=cabinClassRepository.findById(id).orElseThrow(
                 ()->new Exception("Cabin Class Not Found with Id")
         );
-        if(cabinClassRepository.existsByCodeAndAircraftIAndIdNot(
+        if(cabinClassRepository.existsByCodeAndAircraftIdAndIdNot(
                 request.getCode().toUpperCase(),
                 cabinClass.getAircraftId(),
                 cabinClass.getId()))

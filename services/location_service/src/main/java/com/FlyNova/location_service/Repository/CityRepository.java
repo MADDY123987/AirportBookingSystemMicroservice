@@ -15,7 +15,7 @@ public interface CityRepository extends JpaRepository<City,Long> {
         select c from City c
         where lower(c.name) like lower(concat('%',:keyword,'%'))
         or lower(c.cityCode) like lower(concat('%',:keyword,'%'))
-        or lower(c.CountryCode) like lower(concat('%',:keyword,'%'))
+        or lower(c.countryCode) like lower(concat('%',:keyword,'%'))
          or lower(c.regionCode) like lower(concat('%',:keyword,'%'))
          or lower(c.timeZoneId) like lower(concat('%',:keyword,'%'))
 """)

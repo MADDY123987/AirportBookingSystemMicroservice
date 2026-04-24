@@ -13,6 +13,6 @@ public interface CabinClassRepository extends JpaRepository<CabinClass,Long> {
    CabinClass findByAircraftIdAndName(Long aircraftId, CabinClassType name);
 
    Boolean existsByCodeAndAircraftId(String code,Long aircraftId);
-   Boolean existsByCodeAndAircraftIAndIdNot(String code,Long aircraftId,Long id);
+   Boolean existsByCodeAndAircraftIdAndIdNot(String code,Long aircraftId,Long id);
 
 }

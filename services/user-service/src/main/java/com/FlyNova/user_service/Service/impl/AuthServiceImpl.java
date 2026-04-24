@@ -24,7 +24,6 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 public class AuthServiceImpl implements AuthService {
     private final UserRepository userRepository;
-    private final AuthService authService;
     /*
     1.check if the email Already Exists
     2.Encode password using Bcrypt

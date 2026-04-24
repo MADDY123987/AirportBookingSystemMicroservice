@@ -36,7 +36,7 @@ public class CabinClassController {
         return ResponseEntity.ok(cabinClassService.getCabinClassById(id));
     }
 
-    @GetMapping("/{aircraft/{id}/name/{cabinClassId}")
+    @GetMapping("/aircraft/{id}/name/{cabinClass}")
     public ResponseEntity<CabinClassResponse> getCabinClassesByAircraftIdAndName(
             @PathVariable CabinClassType cabinClass,
             @PathVariable Long id
