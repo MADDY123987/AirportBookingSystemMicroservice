@@ -34,8 +34,11 @@ public class SeatMap {
     private Long airlineId;
 
     //todo:watch
-    //@onetoMany
-    //private List<Seat>seats
+    @OneToMany(mappedBy="seatMap"
+            ,fetch = FetchType.LAZY
+            ,cascade = CascadeType.ALL
+            ,orphanRemoval = true)
+    private List<Seat>seats;
 
     @OneToOne
     private CabinClass cabinClass;

@@ -6,6 +6,7 @@ import com.FlyNova.Seat_service.Model.SeatMap;
 import com.FlyNova.Seat_service.Repository.CabinClassRepository;
 import com.FlyNova.Seat_service.Repository.SeatMapRepository;
 import com.FlyNova.Seat_service.Service.SeatMapService;
+import com.FlyNova.Seat_service.Service.SeatService;
 import com.FlyNova.payload.request.SeatMapRequest;
 import com.FlyNova.payload.response.SeatMapResponse;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 public class SeatMapServiceImpl implements SeatMapService {
     private final CabinClassRepository cabinClassRepository;
     private final SeatMapRepository seatMapRepository;
+    private final SeatService seatService;
 
     @Override
     public SeatMapResponse CreateSeatMap(Long airlineId, SeatMapRequest request) throws Exception {
@@ -33,6 +35,8 @@ public class SeatMapServiceImpl implements SeatMapService {
         SeatMap savedSeatMap=seatMapRepository.save(seatMap);
 
         //todo:generate Seats for SeatMap Automaticll for the SeatMap
+        seatService.generateSeats(savedSeatMap.getId());
+
         return SeatMapMapper.toResponse(savedSeatMap);
     }
 

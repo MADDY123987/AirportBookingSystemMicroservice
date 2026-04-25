@@ -1,25 +1,34 @@
-package com.FlyNova.payload.response;
+package com.FlyNova.payload.request;
+
 
 import com.FlyNova.enums.SeatType;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SeatResponse {
-    private Long id;
+public class SeatRequest {
+    @NotBlank(message = "Seat Number is Required")
     private String seatNumber;
+
+    @NotNull(message = "Seat Row is Required")
     private Integer seatRow;
+
+    private Long cabinClassId;
+
     private Character columnLetter;
+
+    @NotNull(message = "Seat type is Required")
     private SeatType seatType;
 
-    //private Long seatMapId;
+    @NotNull(message = "Seat Map is Required")
+    private Long seatMapId;
 
     private Boolean isAvailable;
     private Boolean isBlocked;
@@ -28,7 +37,6 @@ public class SeatResponse {
 
     private Double basePrice;
     private Double premiumSuperCharge;
-    private Double totalPrice;
 
     private Boolean hasExtraLegRoom;
     private Boolean hasPowerOutlet;
@@ -38,18 +46,5 @@ public class SeatResponse {
     private Integer seatPitch;
     private Integer seatWidth;
 
-    private Long seatMapId;
-    private String seatMapName;
-    private Long cabinClassId;
-    private String cabinClassName;
 
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
-    private String createdBy;
-    private String updatedBy;
-
-    private Boolean isPremiumSeat;
-    private Boolean isBookable;
-    private String fullPosition;
-    private String seatCharacteristics;
 }
