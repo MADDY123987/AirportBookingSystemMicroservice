@@ -23,5 +23,4 @@ public class FlightInstanceCabinResponse {
     private Integer availableSeats;
     private Integer isActive;
     private Integer canBook;
-
 }
