@@ -1,10 +1,12 @@
 package com.FlyNova.Seat_service.Mapper;
 
 import com.FlyNova.Seat_service.Model.CabinClass;
+import com.FlyNova.Seat_service.Model.Seat;
 import com.FlyNova.Seat_service.Model.SeatMap;
 import com.FlyNova.payload.request.SeatMapRequest;
 import com.FlyNova.payload.response.SeatMapResponse;
 
+import java.util.List;
 
 
 public class SeatMapMapper {
@@ -27,27 +29,44 @@ public class SeatMapMapper {
     }
 
     public static SeatMapResponse toResponse(SeatMap seatMap) {
-        if(seatMap == null) return  null;
-        /*List<Seat> seats = seatMap.getSeats();
+        if (seatMap == null) return null;
+
+        List<Seat> seats = seatMap.getSeats();
 
         int totalSeats = seats != null ? seats.size() : 0;
-        int availableSeats = seats != null ? (int) seats.stream().filter(seat ->
-                Boolean.TRUE.equals(seat.getIsAvailable()) &&
-                        Boolean.TRUE.equals(seat.getIsActive()) &&
-                        !Boolean.TRUE.equals(seat.getIsBlocked())).count() : 0;
 
-        int windowSeats = seats != null ? (int) seats.stream().filter(seat ->
-                seat.getSeatType().name().contains("WINDOW")).count() : 0;
-        int aisleSeats = seats != null ? (int) seats.stream().filter(seat ->
-                seat.getSeatType().name().contains("AISLE")).count() : 0;
-        int middleSeats = seats != null ? (int) seats.stream().filter(seat ->
-                seat.getSeatType().name().contains("MIDDLE")).count() : 0;
-        int premiumSeats = seats != null ? (int) seats.stream().filter(seat ->
-                Boolean.TRUE.equals(seat.getHasExtraLegroom()) ||
-                        Boolean.TRUE.equals(seat.getIsEmergencyExit()) ||
-                        Boolean.TRUE.equals(seat.getHasExtraWidth())).count() : 0;
-        int emergencyExitSeats = seats != null ? (int) seats.stream().filter(seat ->
-                Boolean.TRUE.equals(seat.getIsEmergencyExit())).count() : 0;*/
+        int availableSeats = seats != null ? (int) seats.stream()
+                .filter(seat ->
+                        Boolean.TRUE.equals(seat.getIsAvailable()) &&
+                                Boolean.TRUE.equals(seat.getIsActive()) &&
+                                !Boolean.TRUE.equals(seat.getIsBlocked()))
+                .count() : 0;
+
+        int windowSeats = seats != null ? (int) seats.stream()
+                .filter(seat -> seat.getSeatType() != null &&
+                        seat.getSeatType().name().contains("WINDOW"))
+                .count() : 0;
+
+        int aisleSeats = seats != null ? (int) seats.stream()
+                .filter(seat -> seat.getSeatType() != null &&
+                        seat.getSeatType().name().contains("AISLE"))
+                .count() : 0;
+
+        int middleSeats = seats != null ? (int) seats.stream()
+                .filter(seat -> seat.getSeatType() != null &&
+                        seat.getSeatType().name().contains("MIDDLE"))
+                .count() : 0;
+
+        int premiumSeats = seats != null ? (int) seats.stream()
+                .filter(seat ->
+                        Boolean.TRUE.equals(seat.getHasExtraLegRoom()) ||
+                                Boolean.TRUE.equals(seat.getIsEmergencyExist()) ||
+                                Boolean.TRUE.equals(seat.getHasExtraWidth()))
+                .count() : 0;
+
+        int emergencyExitSeats = seats != null ? (int) seats.stream()
+                .filter(seat -> Boolean.TRUE.equals(seat.getIsEmergencyExist()))
+                .count() : 0;
 
         return SeatMapResponse.builder()
                 .id(seatMap.getId())
@@ -59,16 +78,17 @@ public class SeatMapMapper {
                 .cabinClassId(seatMap.getCabinClass() != null ? seatMap.getCabinClass().getId() : null)
                 .cabinClassName(seatMap.getCabinClass() != null ? seatMap.getCabinClass().getName().toString() : null)
                 .cabinClassCode(seatMap.getCabinClass() != null ? seatMap.getCabinClass().getCode() : null)
-//                .totalSeats(totalSeats)
-//                .availableSeats(availableSeats)
-//                .occupiedSeats(totalSeats - availableSeats)
-//              //  .seats(seats != null ? seats.stream().map(SeatMapper::toResponse)
-//                        //.collect(Collectors.toList()) : null)
-//                .windowSeats(windowSeats)
-//                .aisleSeats(aisleSeats)
-//                .middleSeats(middleSeats)
-//                .premiumSeats(premiumSeats)
-//                .emergencyExitSeats(emergencyExitSeats)
+                .totalSeats(totalSeats)
+                .availableSeats(availableSeats)
+                .occupiedSeats(totalSeats - availableSeats)
+                .windowSeats(windowSeats)
+                .aisleSeats(aisleSeats)
+                .middleSeats(middleSeats)
+                .premiumSeats(premiumSeats)
+                .emergencyExitSeats(emergencyExitSeats)
+                .seats(seats != null
+                        ? seats.stream().map(SeatMapper::toResponse).toList()
+                        : null)
                 .build();
     }
 

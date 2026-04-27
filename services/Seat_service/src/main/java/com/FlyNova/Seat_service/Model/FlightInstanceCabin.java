@@ -3,6 +3,9 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -28,7 +31,10 @@ public class FlightInstanceCabin {
 
     //todo:watch
     //
-    //private List<SeatInstance> seats=new ArrayList<>();
+    // flightInstanceCabin
+
+    @OneToMany(mappedBy = "flightInstanceCabin")
+    private List<SeatInstance> seats=new ArrayList<>();
 
     public Integer getAvailableSeats(){
             return totalSeats-BookedSeats;

@@ -15,13 +15,13 @@ public class FlightInstanceCabinMapper {
                 .cabinClass(fic.getCabinClass() != null ?
                         CabinClassMapper.toResponse(fic.getCabinClass(), fic.getCabinClass().getSeatMap()) : null)
                 //todo:watch set Seat Intance
-                //.seats(fic.geteats() != null ?
-                       // fic.getSeats().stream().map(SeatInstanceMapper::toResponse)
-                               // .collect(Collectors.toList()) : null)
-                .SeatMap(fic.getCabinClass() != null && fic.getCabinClass().getSeatMap() != null ?
+                .seats(fic.getSeats() != null ?
+                        fic.getSeats().stream().map(SeatInstanceMapper::toResponse)
+                                .collect(Collectors.toList()) : null)
+                .seatMap(fic.getCabinClass() != null && fic.getCabinClass().getSeatMap() != null ?
                         SeatMapMapper.toSimpleResponse(fic.getCabinClass().getSeatMap()) : null)
                 .totalSeats(fic.getTotalSeats())
-                .bookedSeats(fic.getBookedSeats())
+                .BookedSeats(fic.getBookedSeats())
                 .availableSeats(fic.getAvailableSeats())
                 .build();
     }

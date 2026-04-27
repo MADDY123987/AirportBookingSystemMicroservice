@@ -6,6 +6,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface FlightInstanceCabinRepository extends JpaRepository<FlightInstanceCabin,Long> {
-    Page<FlightInstanceCabin>findBYFlightInstanceId(Long flightInstanceId, Pageable pageable);
-    FlightInstanceCabin findFlightInstanceIdAndCabinClassId(Long flightInstanceId,Long cabinClassId);
+    Page<FlightInstanceCabin> findByFlightInstanceId(
+            Long flightInstanceId,
+            Pageable pageable
+    );
+    FlightInstanceCabin findByFlightInstanceIdAndCabinClassId(
+            Long flightInstanceId,
+            Long cabinClassId
+    );
 }

@@ -107,4 +107,16 @@ public class Seat {
     {
         return seatRow+""+columnLetter;
     }
+
+    public String getSeatCharacteristics() {
+        StringBuilder characteristics = new StringBuilder();
+        if (hasExtraLegRoom) characteristics.append("Extra Legroom, ");
+        if (isEmergencyExist) characteristics.append("Emergency Exit, ");
+        if (hasPowerOutlet) characteristics.append("Power, ");
+        if (hasTvScreen) characteristics.append("TV, ");
+        if (characteristics.length() > 0) {
+            characteristics.setLength(characteristics.length() - 2);
+        }
+        return characteristics.toString();
+    }
 }

@@ -1,6 +1,7 @@
 package com.FlyNova.Seat_service.Mapper;
 
 import com.FlyNova.Seat_service.Model.CabinClass;
+import com.FlyNova.Seat_service.Model.SeatMap;
 import com.FlyNova.enums.CabinClassType;
 import com.FlyNova.payload.request.CabinClassRequest;
 import com.FlyNova.payload.response.CabinClassResponse;
@@ -22,7 +23,7 @@ public class CabinClassMapper {
                 .build();
     }
 
-    public static CabinClassResponse toResponse(CabinClass cabinClass) {
+    public static CabinClassResponse toResponse(CabinClass cabinClass, SeatMap seatMap) {
         if (cabinClass == null) return null;
         return CabinClassResponse.builder()
                 .id(cabinClass.getId())
@@ -31,7 +32,7 @@ public class CabinClassMapper {
                 .description(cabinClass.getDescription())
                 .aircraftId(cabinClass.getAircraftId())
                 //todo watch SeatMap add later from fuction as input SeatMap seatMap
-               // .seatMap(seatMap != null ? SeatMapMapper.toResponse(seatMap) : null)
+                .seatMap(seatMap != null ? SeatMapMapper.toResponse(seatMap) : null)
                 .displayOrder(cabinClass.getDisplayOrder())
                 .isActive(cabinClass.getIsActive())
                 .isBookable(cabinClass.getIsBookable())
